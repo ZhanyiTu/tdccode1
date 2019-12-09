@@ -23,11 +23,11 @@ end
 for j=1:5
     v=v_+rand(100,1)*10^(j-5);
     A=diag(v);
-    A=P*A*P^-1;
+    A=P*A*(P^-1);
     x0=A\b;
     for n=1:22
-    x=GMRES(A,b,n);
-    e_(n,j)=norm(x-x0);
+        x=GMRES(A,b,n);
+        e_(n,j)=norm(x-x0);
     end
 end
 figure
