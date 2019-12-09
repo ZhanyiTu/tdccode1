@@ -1,5 +1,6 @@
 
 import numpy as np
+import math
 from numpy.linalg import norm
 from numpy.linalg import inv
 from numpy.linalg import solve
@@ -40,7 +41,7 @@ A = np.diag(v.flatten())#flatten 返回成1维的数组 diag:返回对角线数�
 P = np.random.rand(100,100)#生成100个大小为100 每个值在[0,1)的数组
 A = P*A*inv(P)#inv计算逆
 b = np.random.rand(100, 1)
-b=b.flatten()
+b = b.flatten()
 x0 = np.dot(np.dot(inv(np.dot(A.T,A)),A.T),b)#两个数组的点积
 temp = np.array([[5,10,20,90]])
 e=[]
@@ -50,8 +51,15 @@ for i in range(4):
     x = GMRES(A,b,n)
     temp2 = norm(x-x0)
     e.append(temp2)
-for j in range(5)
-    v =
+for j in range(5):
+    v = v_ + np.random.rand(100, 1) * pow(10, j-5)
+    A = np.diag(v.flatten())
+    x0 = A / b
+    for n in range(20):
+        x = GMRES(A, b, n)
+        e_[n][j] = norm(x - x0)
+
+print(e_)
 '''
 function x=GMRES(A,b,n)//定义一个叫做gmres的函数
     S=zeros(n+1,n);
