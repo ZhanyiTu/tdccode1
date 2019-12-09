@@ -4,5 +4,8 @@ Ctrl+T 取消注释
 pycharm的git是通过本身git的设置来推送的在使用前要配置好
 
 因为ndarray没有逆运算 所以换一种数据结构
-.I转置
+.I逆
 .A数组
+.T转置
+shadows name 'xxxx' from outer scope 
+矩阵的除法就是乘以它的逆
