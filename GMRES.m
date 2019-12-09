@@ -16,5 +16,3 @@ function x=GMRES(A,b,n)
     t=inv(S'*S)*S'*b;
     x=Q*t;
 end
-
-

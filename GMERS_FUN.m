@@ -19,7 +19,7 @@ for i=1:4
     n=temp(i);
     x=GMRES(A,b,n);
     e(i)=norm(x-x0);
-End //
+end
 for j=1:5
     v=v_+rand(100,1)*10^(j-5);
     A=diag(v);
