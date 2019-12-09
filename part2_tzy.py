@@ -16,10 +16,10 @@ def GMRES(A,b,n):
     t = mat(np.zeros((n,1)))
     Q[:,0] = b/norm(b)
     for i in np.arange(1, n + 1, 1):
-        Q[:, i] = A * Q[:, i - 1]
+        Q[:, i] = A * Q[:, i - 1]#直接取下标的 不变化
         for j in np.arange(0, i , 1):#0参加 i-2参加 i-1不参加
             S[j, i - 1] = Q[:, i].T * Q[:, j]
-        Q[:, i] = Q[:, i] - Q[:, 0:(i - 1)] * S[0:(i - 1), i - 1]
+        Q[:, i] = Q[:, i] - Q[:, 0:i ] * S[0:i , i - 1]#带冒号的 左边减一 右边加一
         S[i, i - 1] = norm(Q[:, i])
         Q[:, i] = Q[:, i] / S[i, i - 1]
     Q = Q[:,0:n ]
